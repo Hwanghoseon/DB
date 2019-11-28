@@ -51,9 +51,6 @@ public class menu {
 			if(flag == 0)
 				continue;
 			
-			//check = sc.nextInt();
-			//sc.nextLine();
-			
 			if(check == 1)				// 1. 고객 등록
 				cust.Addcust();
 			else if(check == 2)			// 2. 고객 정보 수정

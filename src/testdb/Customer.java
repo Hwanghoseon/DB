@@ -7,7 +7,7 @@ import java.io.*;
 import java.util.InputMismatchException;
 
 public class Customer {
-	public void Addcust() {    // 1. 고객 등록
+	public void Addcust() {    // 고객 등록
 		String name;
 		String birth;
 		String phone;
@@ -31,8 +31,6 @@ public class Customer {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			Connection con=DriverManager.getConnection(
 					"jdbc:mysql://192.168.56.101:4567/hotel","hhs","a123456789");
-			//PreparedStatement pstmt=con.prepareStatement("INSERT INTO Customer(custname, birth, phone, address) VALUES(?, ?, ?, ?)");
-			//pstmt = setString(1, name);
 			System.out.println("OK");
 			
 			pstmt = con.prepareStatement(query);
@@ -52,7 +50,7 @@ public class Customer {
 		}catch(Exception e){ System.out.println(e);}
 	}
 	
-	public void modifycust() {    // 2. 고객 정보 수정
+	public void modifycust() {    // 고객 정보 수정
 		int custid;
 		String name;
 		String birth;
@@ -109,7 +107,7 @@ public class Customer {
 		}catch(Exception e){ System.out.println(e);}
 	}
 	
-	public void printcust() {	// 18. 고객 명단 보기
+	public void printcust() {	// 고객 명단 보기
 		try{			
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			Connection con=DriverManager.getConnection(
@@ -128,7 +126,7 @@ public class Customer {
 		}catch(Exception e){ System.out.println(e);}
 	}
 	
-	public void Delcust() {	// 19. 고객 삭제
+	public void Delcust() {	// 고객 삭제
 		int custid;
 		
 		Scanner sc = new Scanner(System.in);
@@ -144,8 +142,6 @@ public class Customer {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			Connection con=DriverManager.getConnection(
 					"jdbc:mysql://192.168.56.101:4567/hotel","hhs","a123456789");
-			//PreparedStatement pstmt=con.prepareStatement("INSERT INTO Customer(custname, birth, phone, address) VALUES(?, ?, ?, ?)");
-			//pstmt = setString(1, name);
 			System.out.println("OK");
 			
 			pstmt = con.prepareStatement(query);

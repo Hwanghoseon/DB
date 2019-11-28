@@ -9,7 +9,7 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Airplanereservation {
-	public void printreair() {	// 4. 예약된 항공권 보기
+	public void printreair() {			// 예약된 항공권 보기
 		try{			
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			Connection con=DriverManager.getConnection(
@@ -28,7 +28,7 @@ public class Airplanereservation {
 		}catch(Exception e){ System.out.println(e);}
 	}
 	
-	public void Airplanereservation() {    // 16. 항공권 에약
+	public void Airplanereservation() {    // 항공권 에약
 		int custid = 0;
 		int airplaneid = 0;
 		String departure;	// 출발시각
@@ -39,7 +39,6 @@ public class Airplanereservation {
 		
 		Scanner sc = new Scanner(System.in);
 		ResultSet rs=null;
-		
 		
 		String query = "insert into Airplanereservation(custid, airplaneid, departuredate, arrivaledate, departure, arrial) values(?, ?, ?, ?, ?, ?);";
 		PreparedStatement pstmt = null;
@@ -130,7 +129,7 @@ public class Airplanereservation {
 		}catch(Exception e){ System.out.println(e);}
 	}
 	
-	public void Delreair() {	//  17. 항공권 예약 취소
+	public void Delreair() {	//  항공권 예약 취소
 		int airreservationid;
 		
 		Scanner sc = new Scanner(System.in);

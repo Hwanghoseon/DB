@@ -9,7 +9,7 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Hotelreservation {
-	public void printrehotel() {	// 3. 예약된 호텔 보기
+	public void printrehotel() {	// 예약된 호텔 보기
 		try{			
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			Connection con=DriverManager.getConnection(
@@ -28,7 +28,7 @@ public class Hotelreservation {
 		}catch(Exception e){ System.out.println(e);}
 	}
 	
-	public void Hotelreservation() {    // 14. 호텔 에약
+	public void Hotelreservation() {    // 호텔 에약
 		int custid = 0;
 		int hotelid = 0;
 		String checkin;
@@ -45,8 +45,6 @@ public class Hotelreservation {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			Connection con=DriverManager.getConnection(
 					"jdbc:mysql://192.168.56.101:4567/hotel","hhs","a123456789");
-			//PreparedStatement pstmt=con.prepareStatement("INSERT INTO Customer(custname, birth, phone, address) VALUES(?, ?, ?, ?)");
-			//pstmt = setString(1, name);
 			System.out.println("OK"); 
 			
 			Statement stmt=con.createStatement();
@@ -121,7 +119,7 @@ public class Hotelreservation {
 		}catch(Exception e){ System.out.println(e);}
 	}
 	
-	public void Delrehotel() {	// 15. 호텔 예약 취소
+	public void Delrehotel() {	// 호텔 예약 취소
 		int hotelreservationid;
 		
 		Scanner sc = new Scanner(System.in);

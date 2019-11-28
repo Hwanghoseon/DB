@@ -9,7 +9,7 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Hotel {
-	public void Addhotel() {	// 5. 호텔 등록
+	public void Addhotel() {	// 호텔 등록
 		String name;
 		int roomsize = 0;
 		int hotelprice;
@@ -41,8 +41,6 @@ public class Hotel {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			Connection con=DriverManager.getConnection(
 					"jdbc:mysql://192.168.56.101:4567/hotel","hhs","a123456789");
-			//PreparedStatement pstmt=con.prepareStatement("INSERT INTO Customer(custname, birth, phone, address) VALUES(?, ?, ?, ?)");
-			//pstmt = setString(1, name);
 			System.out.println("OK");
 			
 			pstmt = con.prepareStatement(query);
@@ -61,7 +59,7 @@ public class Hotel {
 		}catch(Exception e){ System.out.println(e);}
 	}
 	
-	public void Delhotel() {	// 6. 호텔 삭제
+	public void Delhotel() {	// 호텔 삭제
 		int hotelid;
 		
 		Scanner sc = new Scanner(System.in);
@@ -77,8 +75,6 @@ public class Hotel {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			Connection con=DriverManager.getConnection(
 					"jdbc:mysql://192.168.56.101:4567/hotel","hhs","a123456789");
-			//PreparedStatement pstmt=con.prepareStatement("INSERT INTO Customer(custname, birth, phone, address) VALUES(?, ?, ?, ?)");
-			//pstmt = setString(1, name);
 			System.out.println("OK");
 			
 			pstmt = con.prepareStatement(query);
@@ -95,7 +91,7 @@ public class Hotel {
 		}catch(Exception e){ System.out.println(e);}
 	}
 	
-	public void printht() {	// 9. 호텔 전체 목록 보기
+	public void printht() {	// 호텔 전체 목록 보기
 		try{			
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			Connection con=DriverManager.getConnection(
@@ -114,7 +110,7 @@ public class Hotel {
 		}catch(Exception e){ System.out.println(e);}
 	}
 	
-	public void searchht_name() {	// 9. 호텔명으로 호텔상품 검색
+	public void searchht_name() {	// 호텔명으로 호텔상품 검색
 		String hotelname;
 		
 		Scanner sc = new Scanner(System.in);
@@ -144,7 +140,7 @@ public class Hotel {
 		}catch(Exception e){ System.out.println(e);}
 	}
 	
-	public void searchht_roomsize() {	// 10. 최대 인원 수로 호텔상품 검색
+	public void searchht_roomsize() {	// 최대 인원 수로 호텔상품 검색
 		int roomsize = 0;
 		
 		Scanner sc = new Scanner(System.in);
@@ -175,7 +171,7 @@ public class Hotel {
 		}catch(Exception e){ System.out.println(e);}
 	}
 	
-	public void searchht_price() {	// 11. 호텔 가격으로 호텔상품 검색
+	public void searchht_price() {	// 호텔 가격으로 호텔상품 검색
 		int price;
 		
 		Scanner sc = new Scanner(System.in);

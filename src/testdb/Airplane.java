@@ -9,7 +9,7 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Airplane {
-	public void Addair() {	// 7. 항공권 등록
+	public void Addair() {	// 항공권 등록
 		String name;
 		String airfrom;		// 출발지
 		String airto;		// 도착지
@@ -40,9 +40,6 @@ public class Airplane {
 		if(flag == 0)
 			return;
 		
-		//airprice = sc.nextInt();
-		//sc.nextLine();
-		
 		String query = "insert into Airplane(airplanename, airfrom, airto, airprice) values(?, ?, ?, ?);";
 		PreparedStatement pstmt = null;
 		
@@ -50,8 +47,6 @@ public class Airplane {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			Connection con=DriverManager.getConnection(
 					"jdbc:mysql://192.168.56.101:4567/hotel","hhs","a123456789");
-			//PreparedStatement pstmt=con.prepareStatement("INSERT INTO Customer(custname, birth, phone, address) VALUES(?, ?, ?, ?)");
-			//pstmt = setString(1, name);
 			System.out.println("OK");
 			
 			pstmt = con.prepareStatement(query);
@@ -71,7 +66,7 @@ public class Airplane {
 		}catch(Exception e){ System.out.println(e);}
 	}
 	
-	public void Delair() {	// 8. 항공권 삭제
+	public void Delair() {	// 항공권 삭제
 		int airid;
 		
 		Scanner sc = new Scanner(System.in);
@@ -87,8 +82,6 @@ public class Airplane {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			Connection con=DriverManager.getConnection(
 					"jdbc:mysql://192.168.56.101:4567/hotel","hhs","a123456789");
-			//PreparedStatement pstmt=con.prepareStatement("INSERT INTO Customer(custname, birth, phone, address) VALUES(?, ?, ?, ?)");
-			//pstmt = setString(1, name);
 			System.out.println("OK");
 			
 			pstmt = con.prepareStatement(query);
@@ -105,7 +98,7 @@ public class Airplane {
 		}catch(Exception e){ System.out.println(e);}
 	}
 	
-	public void printair() {	// 10. 항공권 전체 목록 보기
+	public void printair() {	// 항공권 전체 목록 보기
 		try{			
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			Connection con=DriverManager.getConnection(
@@ -124,7 +117,7 @@ public class Airplane {
 		}catch(Exception e){ System.out.println(e);}
 	}
 	
-	public void searchair_airname() {	// 12. 항공사로 항공권 검색
+	public void searchair_airname() {	// 항공사로 항공권 검색
 		String airname;
 		
 		Scanner sc = new Scanner(System.in);
@@ -154,7 +147,7 @@ public class Airplane {
 		}catch(Exception e){ System.out.println(e);}
 	}
 	
-	public void searchair_price() {	// 13. 항공권 가격으로 항공권상품 검색
+	public void searchair_price() {	// 항공권 가격으로 항공권상품 검색
 		int price;
 		
 		Scanner sc = new Scanner(System.in);
