@@ -8,7 +8,7 @@ import java.util.InputMismatchException;
 
 public class Test
 {
-	public void Addcust() {    // 고객 등록
+	public void Addcust() {    // 1. 고객 등록
 		String name;
 		String birth;
 		String phone;
@@ -53,7 +53,7 @@ public class Test
 		}catch(Exception e){ System.out.println(e);}
 	}
 	
-	public void modifycust() {    // 고객 정보 수정
+	public void modifycust() {    // 2. 고객 정보 수정
 		int custid;
 		String name;
 		String birth;
@@ -110,7 +110,7 @@ public class Test
 		}catch(Exception e){ System.out.println(e);}
 	}
 	
-	public void Addhotel() {	// 호텔 등록
+	public void Addhotel() {	// 5. 호텔 등록
 		String name;
 		int roomsize = 0;
 		int hotelprice;
@@ -162,7 +162,7 @@ public class Test
 		}catch(Exception e){ System.out.println(e);}
 	}
 
-	public void Addair() {	// 항공권 등록
+	public void Addair() {	// 7. 항공권 등록
 		String name;
 		String airfrom;		// 출발지
 		String airto;		// 도착지
@@ -224,7 +224,7 @@ public class Test
 		}catch(Exception e){ System.out.println(e);}
 	}
 	
-	public void Delcust() {	// 고객 삭제
+	public void Delcust() {	// 19. 고객 삭제
 		int custid;
 		
 		Scanner sc = new Scanner(System.in);
@@ -258,7 +258,7 @@ public class Test
 		}catch(Exception e){ System.out.println(e);}
 	}
 	
-	public void Delhotel() {	// 호텔 삭제
+	public void Delhotel() {	// 6. 호텔 삭제
 		int hotelid;
 		
 		Scanner sc = new Scanner(System.in);
@@ -292,7 +292,7 @@ public class Test
 		}catch(Exception e){ System.out.println(e);}
 	}
 	
-	public void Delair() {	// 항공권 삭제
+	public void Delair() {	// 8. 항공권 삭제
 		int airid;
 		
 		Scanner sc = new Scanner(System.in);
@@ -326,7 +326,7 @@ public class Test
 		}catch(Exception e){ System.out.println(e);}
 	}
 	
-	public void Hotelreservation() {    // 호텔 에약
+	public void Hotelreservation() {    // 14. 호텔 에약
 		int custid = 0;
 		int hotelid = 0;
 		String checkin;
@@ -419,7 +419,7 @@ public class Test
 		}catch(Exception e){ System.out.println(e);}
 	}
 	
-	public void Airplanereservation() {    // 항공권 에약
+	public void Airplanereservation() {    // 16. 항공권 에약
 		int custid = 0;
 		int airplaneid = 0;
 		String departure;	// 출발시각
@@ -521,7 +521,7 @@ public class Test
 		}catch(Exception e){ System.out.println(e);}
 	}
 	
-	public void Delrehotel() {	// 호텔 예약 취소
+	public void Delrehotel() {	// 15. 호텔 예약 취소
 		int hotelreservationid;
 		
 		Scanner sc = new Scanner(System.in);
@@ -553,7 +553,7 @@ public class Test
 		}catch(Exception e){ System.out.println(e);}
 	}
 	
-	public void Delreair() {	//  항공권 예약 취소
+	public void Delreair() {	//  17. 항공권 예약 취소
 		int airreservationid;
 		
 		Scanner sc = new Scanner(System.in);
@@ -585,7 +585,7 @@ public class Test
 		}catch(Exception e){ System.out.println(e);}
 	}
 	
-	public void printrehotel() {	// 예약된 호텔 보기
+	public void printrehotel() {	// 3. 예약된 호텔 보기
 		try{			
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			Connection con=DriverManager.getConnection(
@@ -604,7 +604,7 @@ public class Test
 		}catch(Exception e){ System.out.println(e);}
 	}
 	
-	public void printreair() {	// 예약된 항공권 보기
+	public void printreair() {	// 4. 예약된 항공권 보기
 		try{			
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			Connection con=DriverManager.getConnection(
@@ -623,7 +623,7 @@ public class Test
 		}catch(Exception e){ System.out.println(e);}
 	}
 	
-	public void printcust() {	// 고객 명단 보기
+	public void printcust() {	// 18. 고객 명단 보기
 		try{			
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			Connection con=DriverManager.getConnection(
@@ -642,7 +642,45 @@ public class Test
 		}catch(Exception e){ System.out.println(e);}
 	}
 	
-	public void searchht_name() {	// 호텔명 검색
+	public void printht() {	// 9. 호텔 전체 목록 보기
+		try{			
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			Connection con=DriverManager.getConnection(
+					"jdbc:mysql://192.168.56.101:4567/hotel","hhs","a123456789");
+			Statement stmt=con.createStatement();
+			ResultSet rs=stmt.executeQuery("SELECT * FROM Hotel");
+			
+			System.out.println("========================================================");
+			System.out.println("호텔 상품 번호          호텔이름           최대 인원 수          가격");
+			System.out.println("========================================================");
+			while(rs.next())
+				System.out.println("    "+rs.getInt(1)+"         "+rs.getString(2)+"                    "+rs.getString(3)+"         "+rs.getString(4));
+			System.out.println("========================================================");
+			
+			con.close();
+		}catch(Exception e){ System.out.println(e);}
+	}
+	
+	public void printair() {	// 10. 항공권 전체 목록 보기
+		try{			
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			Connection con=DriverManager.getConnection(
+					"jdbc:mysql://192.168.56.101:4567/hotel","hhs","a123456789");
+			Statement stmt=con.createStatement();
+			ResultSet rs=stmt.executeQuery("SELECT * FROM Airplane");
+			
+			System.out.println("========================================================");
+			System.out.println("항공권 상품 번호          항공사 이름           출발지           도착지          가격");
+			System.out.println("========================================================");
+			while(rs.next())
+				System.out.println("    "+rs.getInt(1)+"         "+rs.getString(2)+"                    "+rs.getString(3)+"            "+rs.getString(4)+"         "+rs.getString(5));
+			System.out.println("========================================================");
+			
+			con.close();
+		}catch(Exception e){ System.out.println(e);}
+	}
+	
+	public void searchht_name() {	// 9. 호텔명으로 호텔상품 검색
 		String hotelname;
 		
 		Scanner sc = new Scanner(System.in);
@@ -672,7 +710,135 @@ public class Test
 		}catch(Exception e){ System.out.println(e);}
 	}
 	
+	public void searchht_roomsize() {	// 10. 최대 인원 수로 호텔상품 검색
+		int roomsize = 0;
+		
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("검색할 최대 인원 수를 입력 :  ");
+		roomsize = sc.nextInt();
+		sc.nextLine();
+		
+		String query = "SELECT * FROM Hotel WHERE roomsize = ?";
+		PreparedStatement pstmt = null;
+		
+		try{			
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			Connection con=DriverManager.getConnection(
+					"jdbc:mysql://192.168.56.101:4567/hotel","hhs","a123456789");
+			pstmt = con.prepareStatement(query);
+			pstmt.setInt(1, roomsize);
+			ResultSet rs=pstmt.executeQuery();
+			
+			System.out.println("========================================================");
+			System.out.println("호텔 상품 번호          호텔이름           최대 인원 수          가격");
+			System.out.println("========================================================");
+			while(rs.next())
+				System.out.println("    "+rs.getInt(1)+"         "+rs.getString(2)+"                    "+rs.getString(3)+"         "+rs.getString(4));
+			System.out.println("========================================================");
+			
+			con.close();
+		}catch(Exception e){ System.out.println(e);}
+	}
 	
+	
+	public void searchht_price() {	// 11. 호텔 가격으로 호텔상품 검색
+		int price;
+		
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("최대 가격으로 설정할 금액 입력 :  ");
+		price = sc.nextInt();
+		sc.nextLine();
+		
+		String query = "SELECT * FROM Hotel WHERE hotelprice <= ?";
+		PreparedStatement pstmt = null;
+		
+		try{			
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			Connection con=DriverManager.getConnection(
+					"jdbc:mysql://192.168.56.101:4567/hotel","hhs","a123456789");
+			pstmt = con.prepareStatement(query);
+			pstmt.setInt(1, price);
+			ResultSet rs=pstmt.executeQuery();
+			
+			System.out.println("========================================================");
+			System.out.println("호텔 상품 번호          호텔이름           최대 인원 수          가격");
+			System.out.println("========================================================");
+			while(rs.next())
+				System.out.println("    "+rs.getInt(1)+"         "+rs.getString(2)+"                    "+rs.getString(3)+"         "+rs.getString(4));
+			System.out.println("========================================================");
+			
+			con.close();
+		}catch(Exception e){ System.out.println(e);}
+	}
+	
+	
+	public void searchair_price() {	// 13. 항공권 가격으로 항공권상품 검색
+		int price;
+		
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("최대 가격으로 설정할 금액 입력 :  ");
+		price = sc.nextInt();
+		sc.nextLine();
+		
+		String query = "SELECT * FROM Airplane WHERE airprice <= ?";
+		PreparedStatement pstmt = null;
+		
+		try{			
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			Connection con=DriverManager.getConnection(
+					"jdbc:mysql://192.168.56.101:4567/hotel","hhs","a123456789");
+			pstmt = con.prepareStatement(query);
+			pstmt.setInt(1, price);
+			ResultSet rs=pstmt.executeQuery();
+			
+			System.out.println("========================================================");
+			System.out.println("항공권 상품 번호          항공사 이름           출발지           도착지          가격");
+			System.out.println("========================================================");
+			while(rs.next())
+				System.out.println("    "+rs.getInt(1)+"         "+rs.getString(2)+"                    "+rs.getString(3)+"            "+rs.getString(4)+"         "+rs.getString(5));
+			System.out.println("========================================================");
+			
+			con.close();
+		}catch(Exception e){ System.out.println(e);}
+	}
+	
+	
+	
+	
+	
+	
+	public void searchair_airname() {	// 12. 항공사로 항공권 검색
+		String airname;
+		
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("검색할 항공사 이름을 입력 :  ");
+		airname = sc.nextLine();
+		
+		String query = "SELECT * FROM Airplane WHERE airplanename = ?";
+		PreparedStatement pstmt = null;
+		
+		try{			
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			Connection con=DriverManager.getConnection(
+					"jdbc:mysql://192.168.56.101:4567/hotel","hhs","a123456789");
+			pstmt = con.prepareStatement(query);
+			pstmt.setString(1, airname);
+			ResultSet rs=pstmt.executeQuery();
+			
+			System.out.println("========================================================");
+			System.out.println("항공권 상품 번호          항공사 이름           출발지           도착지          가격");
+			System.out.println("========================================================");
+			while(rs.next())
+				System.out.println("    "+rs.getInt(1)+"         "+rs.getString(2)+"                    "+rs.getString(3)+"            "+rs.getString(4)+"         "+rs.getString(5));
+			System.out.println("========================================================");
+			
+			con.close();
+		}catch(Exception e){ System.out.println(e);}
+	}
 	
 	public void b() {		
 		try{			
